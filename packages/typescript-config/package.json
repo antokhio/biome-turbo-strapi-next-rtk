@@ -5,11 +5,13 @@
   "files": [
     "base.json",
     "nextjs.json",
+    "strapi-admin.json",
     "strapi.json"
   ],
   "exports": {
     "./base.json": "./base.json",
     "./nextjs.json": "./nextjs.json",
+    "./strapi-admin.json": "./strapi-admin.json",
     "./strapi.json": "./strapi.json"
   }
 }
