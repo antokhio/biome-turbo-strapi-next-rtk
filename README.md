@@ -7,6 +7,7 @@ This repository is a modern monorepo orchestrated with **Turborepo** and **pnpm*
 * **Package Manager:** pnpm
 * **Monorepo Tooling:** Turborepo
 * **Code Quality:** Biome (root-level workspace configuration)
+* **Git Hooks:** Lefthook installs a pre-commit hook through `pnpm prepare`; it runs Biome checks on staged JavaScript, TypeScript, JSX, TSX, and JSON files.
 * **Language:** TypeScript (Strict Mode)
 * **Runtime:** Node.js v24.18.0
 
