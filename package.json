@@ -1,17 +1,30 @@
 {
-  "name": "tochka-3113",
+  "name": "biome-turbo-strapi-next-rtk",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint:fix": "turbo run lint:fix",
+    "format": "biome format --write .",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "prettier": "^3.7.4",
+    "@biomejs/biome": "^2.5.5",
     "turbo": "^2.10.6",
     "typescript": "5.9.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.28.1"
+    },
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "better-sqlite3",
+      "core-js-pure",
+      "esbuild",
+      "sharp"
+    ]
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {

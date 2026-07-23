@@ -26,6 +26,13 @@ coverage
 out/
 build
 dist
+*.tsbuildinfo
+
+# Strapi
+.cache/
+.strapi/
+.strapi-updater.json
+.tmp/
 
 
 # Debug
