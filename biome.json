@@ -33,6 +33,18 @@
   },
   "overrides": [
     {
+      "includes": ["**/types/generated/**"],
+      "formatter": {
+        "enabled": false
+      },
+      "linter": {
+        "enabled": false
+      },
+      "assist": {
+        "enabled": false
+      }
+    },
+    {
       "includes": ["**/public/**/*.svg"],
       "linter": {
         "rules": {

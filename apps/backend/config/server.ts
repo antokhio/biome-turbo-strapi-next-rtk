@@ -11,6 +11,11 @@ const config = ({
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
+  logger: {
+    updates: {
+      enabled: env.bool("LOGGER_UPDATES", true),
+    },
+  },
 });
 
 export default config;
