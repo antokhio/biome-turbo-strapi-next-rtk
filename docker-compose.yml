@@ -1,0 +1,56 @@
+name: ${PROJECT_NAME}
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./services/nginx/Dockerfile
+    container_name: ${PROJECT_NAME}_nginx
+    ports:
+      - 8080:80
+    networks:
+      - default_network
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+    container_name: ${PROJECT_NAME}_backend
+    volumes:
+      - ./volumes/public:/app/apps/backend/public
+    env_file:
+      - ./apps/backend/.env
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_SSL: "false"
+    networks:
+      - default_network
+    restart: always
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./apps/frontend/Dockerfile
+    container_name: ${PROJECT_NAME}_frontend
+    networks:
+      - default_network
+    restart: always
+
+  postgres:
+    image: postgres:15
+    container_name: ${PROJECT_NAME}_database
+    env_file:
+      - ./apps/backend/.env
+    volumes:
+      - ./volumes/data:/var/lib/postgresql/data
+    networks:
+      - default_network
+    restart: always
+
+networks:
+  default_network:
+    name: ${PROJECT_NAME}_network

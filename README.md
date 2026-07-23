@@ -23,7 +23,7 @@ This repository is a modern monorepo orchestrated with **Turborepo** and **pnpm*
 ### Backend (`/apps/backend`)
 
 * **Framework:** Strapi (v5+)
-* **Database:** SQLite (Local Development)
+* **Database:** PostgreSQL
 * **Linting Strategy:** Biome. The local configuration extends the root workspace configuration.
 
 ### Shared configuration (`/packages/typescript-config`)
@@ -40,6 +40,17 @@ From the root of the repository, Turborepo orchestrates the following tasks acro
 * `pnpm lint:fix`: Applies safe Biome lint, formatting, and import fixes in both applications.
 * `pnpm format`: Formats the whole repository with Biome.
 * `pnpm check-types`: Runs `tsc --noEmit` in both applications through Turborepo.
+
+## 🐳 Docker Deployment
+
+Docker Compose runs the Next.js frontend, Strapi backend, PostgreSQL database, and Nginx reverse proxy. Create the root deployment environment from the template and configure the Strapi secrets and `DATABASE_*` values in `apps/backend/.env`:
+
+```sh
+cp .env.example .env
+docker compose up --build -d
+```
+
+The application is exposed at `http://localhost:8080`. Nginx routes `/` to the frontend and `/claustrum/` to Strapi. PostgreSQL data and Strapi uploads persist in `volumes/data` and `volumes/public`.
 
 ## 🛠️ Package Manager Overrides
 
