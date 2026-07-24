@@ -16,7 +16,9 @@
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "types": "pnpm run types-shared",
+    "types-shared": "strapi ts:generate-types --out-dir ../_shared/src/types"
   },
   "dependencies": {
     "@strapi/database": "5.51.0",

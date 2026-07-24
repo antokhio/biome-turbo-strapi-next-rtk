@@ -26,6 +26,16 @@ This repository is a modern monorepo orchestrated with **Turborepo** and **pnpm*
 * **Database:** PostgreSQL
 * **Linting Strategy:** Biome. The local configuration extends the root workspace configuration.
 
+### Shared types (`/apps/_shared`)
+
+`@repo/shared` is a private, type-only workspace package. Strapi writes schema declarations to `apps/_shared/src/types/generated`; these files are committed so production builds and start commands consume existing types without running Strapi type generation.
+
+Import generated schema interfaces with type-only imports:
+
+```ts
+import type { PluginUsersPermissionsUser } from "@repo/shared";
+```
+
 ### Shared configuration (`/packages/typescript-config`)
 
 The frontend and backend extend dedicated Next.js and Strapi TypeScript presets from the shared internal package. App-level `tsconfig.json` files contain only app-specific paths and file scopes.
@@ -35,6 +45,7 @@ The frontend and backend extend dedicated Next.js and Strapi TypeScript presets 
 From the root of the repository, Turborepo orchestrates the following tasks across all workspaces:
 
 * `pnpm dev`: Launches both the Next.js frontend and the Strapi backend development servers simultaneously.
+* `pnpm types`: Regenerates the committed Strapi declarations in `@repo/shared`. It also runs automatically before `pnpm dev`.
 * `pnpm build`: Builds the applications with Turborepo caching.
 * `pnpm lint`: Executes Biome checks in both applications through Turborepo.
 * `pnpm lint:fix`: Applies safe Biome lint, formatting, and import fixes in both applications.

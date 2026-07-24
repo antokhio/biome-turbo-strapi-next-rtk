@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "predev": "pnpm run types",
     "dev": "turbo run dev",
+    "types": "pnpm --filter backend run types",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "format": "biome format --write .",
