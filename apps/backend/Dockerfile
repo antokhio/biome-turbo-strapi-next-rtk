@@ -32,8 +32,11 @@ COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 
-# Install dependencies strictly using the lockfile without Git hook setup.
-RUN LEFTHOOK=0 pnpm install --frozen-lockfile
+# Skip root lifecycle scripts because Git hooks are not needed in image builds.
+RUN pnpm install --frozen-lockfile --ignore-scripts
+
+# Run pending dependency scripts required by native packages such as Sharp.
+RUN pnpm rebuild --pending
 
 # Copy the actual source code
 COPY --from=builder /app/out/full/ .
