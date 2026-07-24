@@ -1,4 +1,3 @@
-import type { AdminApiToken } from "@repo/shared";
 import styles from "@styles/Home.module.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
@@ -14,15 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-interface X extends AdminApiToken {
-  a: string;
-}
-
 export default function Home() {
-  const x: X = { a: "a" } as any;
-
-  console.log(x);
-
   return (
     <>
       <Head>
