@@ -35,8 +35,8 @@ COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 # Skip root lifecycle scripts because Git hooks are not needed in image builds.
 RUN pnpm install --frozen-lockfile --ignore-scripts
 
-# Run pending dependency scripts required by native packages such as Sharp.
-RUN pnpm rebuild --pending
+# Run native dependency scripts required by Strapi and its admin build.
+RUN pnpm rebuild sharp esbuild
 
 # Copy the actual source code
 COPY --from=builder /app/out/full/ .

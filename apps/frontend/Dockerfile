@@ -35,8 +35,8 @@ COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 # Skip root lifecycle scripts because Git hooks are not needed in image builds.
 RUN pnpm install --frozen-lockfile --ignore-scripts
 
-# Run pending dependency scripts required by native packages such as Sharp.
-RUN pnpm rebuild --pending
+# Run the native dependency script required by Next.js image optimization.
+RUN pnpm rebuild sharp
 
 # Copy the actual source code
 COPY --from=builder /app/out/full/ .
