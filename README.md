@@ -4,7 +4,7 @@ This repository is a modern monorepo orchestrated with **Turborepo** and **pnpm*
 
 ## 🏗️ Architecture & Global Tooling
 
-* **Package Manager:** pnpm
+* **Package Manager:** pnpm 11
 * **Monorepo Tooling:** Turborepo
 * **Code Quality:** Biome (root-level workspace configuration)
 * **Git Hooks:** Lefthook installs a pre-commit hook through `pnpm prepare`; it runs Biome checks on staged JavaScript, TypeScript, JSX, TSX, and JSON files.
@@ -65,7 +65,7 @@ The application is exposed at `http://localhost:8080`. Nginx routes `/` to the f
 
 ## 🛠️ Package Manager Overrides
 
-To prevent binary conflicts and hoisting issues across the frontend and backend, the workspace enforces a strict unified version of `esbuild` using the `"pnpm.overrides"` block in the root `package.json`.
+To prevent binary conflicts and hoisting issues across the frontend and backend, the workspace enforces a strict unified version of `esbuild` through `pnpm-workspace.yaml`.
 
 ---
 
