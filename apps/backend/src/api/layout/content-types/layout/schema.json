@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "layouts",
+  "info": {
+    "singularName": "layout",
+    "pluralName": "layouts",
+    "displayName": "Layout"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    },
+    "defaultSeo": {
+      "type": "component",
+      "component": "shared.default-seo",
+      "repeatable": false
+    }
+  }
+}

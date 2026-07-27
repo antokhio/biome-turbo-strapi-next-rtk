@@ -39,6 +39,9 @@ const config = (): Core.Config.Plugin => ({
       },
     },
   },
+  seo: {
+    enabled: true,
+  },
 });
 
 export default config;

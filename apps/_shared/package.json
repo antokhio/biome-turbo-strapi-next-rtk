@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
-  "types": "./src/types/index.d.ts",
+  "types": "./src/types/index.ts",
   "exports": {
     ".": {
-      "types": "./src/types/index.d.ts"
+      "types": "./src/types/index.ts"
     }
   },
   "files": [

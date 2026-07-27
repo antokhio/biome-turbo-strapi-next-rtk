@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_default_seos",
+  "info": {
+    "displayName": "Default Seo",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "defaultEmptyTitle": {
+      "type": "string"
+    },
+    "defaultTitlePostfix": {
+      "type": "string"
+    },
+    "defaultDescription": {
+      "type": "text"
+    },
+    "defaultKeywords": {
+      "type": "text"
+    },
+    "defaultMetaRobots": {
+      "type": "string",
+      "regex": "[^,]+"
+    },
+    "defaultMetaImage": {
+      "allowedTypes": ["images"],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
