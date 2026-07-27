@@ -12,16 +12,21 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "2.12.0",
     "@repo/shared": "workspace:*",
     "next": "16.2.11",
+    "next-redux-wrapper": "8.1.0",
+    "qs": "6.15.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-redux": "9.3.0"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
+    "@types/qs": "6.15.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@repo/typescript-config": "workspace:*",
     "typescript": "6.0.3"
   }
 }
