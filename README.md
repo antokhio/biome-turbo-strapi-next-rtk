@@ -16,8 +16,8 @@ This repository is a modern monorepo orchestrated with **Turborepo** and **pnpm*
 ### Frontend (`/apps/frontend`)
 
 * **Framework:** Next.js (Pages Router)
-* **UI Library:** Material UI (MUI) (TODO)
-* **State Management:** Redux Toolkit with `next-redux-wrapper` (TODO)
+* **UI Library:** Material UI (MUI) with the Next.js Pages Router SSR cache provider. The component reference page is available at `/theme`.
+* **State Management:** Redux Toolkit, React Redux, and `next-redux-wrapper` for store hydration.
 * **Linting Strategy:** Biome handles formatting, linting, and import organization.
 
 ### Backend (`/apps/backend`)
@@ -25,6 +25,15 @@ This repository is a modern monorepo orchestrated with **Turborepo** and **pnpm*
 * **Framework:** Strapi (v5+)
 * **Database:** PostgreSQL
 * **Linting Strategy:** Biome. The local configuration extends the root workspace configuration.
+
+### Leadeer plugin (`/packages/leadeer`)
+
+`@repo/leadeer` is a local Strapi plugin for sending leads. The backend loads it from the workspace path in `apps/backend/config/plugins.ts`.
+
+* `pnpm --filter @repo/leadeer run build`: Builds the plugin's admin and server bundles.
+* `pnpm --filter @repo/leadeer run watch`: Watches and rebuilds the plugin during plugin development.
+
+Turbo builds workspace dependencies before starting development servers, so `pnpm dev` builds `@repo/leadeer` before Strapi starts.
 
 ### Shared types (`/apps/_shared`)
 
