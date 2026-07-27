@@ -1,3 +1,17 @@
 {
-  "extends": "//"
+  "extends": "//",
+  "linter": {
+    "rules": {
+      "style": {
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "@mui/material": "Use per-component default imports, such as @mui/material/Button."
+            }
+          }
+        }
+      }
+    }
+  }
 }
