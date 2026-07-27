@@ -21,6 +21,7 @@
     "types-shared": "strapi ts:generate-types --out-dir ../_shared/src/types"
   },
   "dependencies": {
+    "@repo/leadeer": "workspace:*",
     "@strapi-community/plugin-seo": "^2.1.1",
     "@strapi/database": "5.51.0",
     "@strapi/plugin-cloud": "5.51.0",

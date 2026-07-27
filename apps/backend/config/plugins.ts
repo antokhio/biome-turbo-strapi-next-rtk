@@ -42,6 +42,10 @@ const config = (): Core.Config.Plugin => ({
   seo: {
     enabled: true,
   },
+  leadeer: {
+    enabled: true,
+    resolve: "../../packages/leadeer",
+  },
 });
 
 export default config;
