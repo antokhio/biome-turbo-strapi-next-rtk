@@ -1,6 +1,8 @@
+import { ThemeProvider } from "@mui/material/styles";
+import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
 import { wrapper } from "@store/store";
 import "@styles/globals.css";
-import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
+import theme from "@theme/theme";
 import type {
   AppInitialProps as NextAppInitialProps,
   AppProps as NextAppProps,
@@ -15,7 +17,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <AppCacheProvider>
       <Provider store={store}>
-        <Component {...props} />
+        <ThemeProvider theme={theme}>
+          <Component {...props} />
+        </ThemeProvider>
       </Provider>
     </AppCacheProvider>
   );
